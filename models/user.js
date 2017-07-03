@@ -18,11 +18,11 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: 'I have not updated my bio however I am pretty cool.'
     },
   }, {
-      classMethods: {
-        associate: function (models) {
-          // associations can be defined here
-        }
-      }
+
     });
+  user.associate = function (models) {
+    user.hasMany(models.post, { as: "posts", foreignKey: "authorid" });
+    user.hasMany(models.likes, { as: "likes", foreignKey: "authorid" });
+  };
   return user;
 };

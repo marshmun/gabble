@@ -6,11 +6,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
   }, {
-      classMethods: {
-        associate: function (models) {
-          // associations can be defined here
-        }
-      }
+
     });
+  post.associate = function (models) {
+    post.belongsTo(models.user, { as: "author", foreignKey: "authorid" });
+    post.hasMany(models.likes, { as: "likes", foreignKey: "postid" });
+  };
   return post;
 };
