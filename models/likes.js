@@ -12,9 +12,9 @@ module.exports = function (sequelize, DataTypes) {
     },
 
   });
-  comment.associate = function (models) {
-    comment.belongsTo(models.post, { as: "post", foreignKey: "postid" });
-    comment.belongsTo(models.user, { as: "author", foreignKey: "authorid" });
+  likes.associate = function (models) {
+    likes.belongsTo(models.post, { as: "post", foreignKey: "postid" });
+    likes.belongsTo(models.user, { as: "author", foreignKey: "authorid" });
   };
   return likes;
 };

@@ -1,19 +1,24 @@
 const express = require("express");
+const app = express();
 const bodyParser = require('body-parser')
 const mustacheExpress = require("mustache-express");
 const session = require("express-session");
 const morgan = require('morgan')
-const sessionConfig = require("./sessionConfig")
-const sessionKey = require('./sessionKey')
-const app = express();
+const models = require('./models')
+const sessionConfig = require("./session/sessionConfig")
+const sessionKey = require('./session/sessionKey')
+const render = require('./routes/render')
+const auth = require('./routes/auth')
+const allpost = require('./routes/post')
+const likes = require('./routes/likes')
 const port = process.env.PORT || 8000;
 
-//mustache engine running
+//MUSTACHE-ENGINE
 app.engine("mustache", mustacheExpress());
-app.set('views', './public');
+app.set('views', './views');
 app.set("view engine", "mustache")
 
-//middleware
+//MIDDLEWARE
 
 app.use('/', express.static('./public'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -25,30 +30,9 @@ function checkAuth(req, res, next) {
         next();
     }
 }
-
-//routes
-app.get('/', function (req, res) {
-    console.log("session", req.session);
-    res.render('index');
-})
-
-app.get('/signup', function (req, res) {
-    res.render('signup')
-})
-
-app.get('/login', function (req, res) {
-    res.render('login')
-})
-
-app.get('/profile', checkAuth, function (req, res) {
-    res.render('profile', { user: req.session.user });
-})
-
-app.get('/homepage', function (req, res) {
-    res.render('homepage')
-})
-
-
+//ROUTES
+render(app)
+allpost(app)
 
 app.listen(port, function () {
     console.log("Server is running on port", port);
