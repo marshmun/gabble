@@ -9,6 +9,15 @@
     <title>Document</title>
 </head>
 <body>
+<h1> Gabble</h1>
+ <form action="/homepage" method="post">
+        <input type="text" name="body" placeholder="Tell us whats on your mind">
+        <input type="submit">
+    </form>
+
+    {{#post}}
+    {{body}}
+    {{/post}}
     
 </body>
 </html>

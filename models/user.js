@@ -20,9 +20,9 @@ module.exports = function (sequelize, DataTypes) {
   }, {
 
     });
-  user.associate = function (models) {
-    user.hasMany(models.post, { as: "posts", foreignKey: "authorid" });
-    user.hasMany(models.likes, { as: "likes", foreignKey: "authorid" });
-  };
+  // user.associate = function (models) {
+  //   user.hasMany(models.post, { as: "posts", foreignKey: "authorid" });
+  //   user.hasMany(models.likes, { as: "likes", foreignKey: "authorid" });
+  // };
   return user;
 };

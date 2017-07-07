@@ -1,3 +1,4 @@
+const models = require('../models')
 function render(app) {
 
     app.get('/', function (req, res) {
@@ -18,7 +19,9 @@ function render(app) {
     })
 
     app.get('/homepage', function (req, res) {
-        res.render('homepage')
+        models.post.findAll().then(function (foundPosts) {
+        })
+        res.render('homepage', { post: foundPosts })
     })
 }
 
