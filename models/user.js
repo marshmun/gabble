@@ -9,6 +9,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -20,9 +28,9 @@ module.exports = function (sequelize, DataTypes) {
   }, {
 
     });
-  // user.associate = function (models) {
-  //   user.hasMany(models.post, { as: "posts", foreignKey: "authorid" });
-  //   user.hasMany(models.likes, { as: "likes", foreignKey: "authorid" });
-  // };
+  user.associate = function (models) {
+    user.hasMany(models.post, { as: "post", foreignKey: "authorId" });
+    user.hasMany(models.like, { as: "like", foreignKey: "postid" });
+  };
   return user;
 };

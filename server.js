@@ -6,7 +6,6 @@ const session = require("express-session");
 const morgan = require('morgan')
 const models = require('./models')
 const sessionConfig = require("./session/sessionConfig")
-const sessionKey = require('./session/sessionKey')
 const render = require('./routes/render')
 const auth = require('./routes/auth')
 const allpost = require('./routes/post')
@@ -33,6 +32,7 @@ function checkAuth(req, res, next) {
 //ROUTES
 render(app)
 allpost(app)
+auth(app)
 
 app.listen(port, function () {
     console.log("Server is running on port", port);

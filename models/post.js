@@ -5,12 +5,19 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-  }, {
+    authorId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      refrences: {
+        model: "users",
+        key: "id",
+      }
+    },
 
-    });
-  // post.associate = function (models) {
-  //   post.belongsTo(models.user, { as: "author", foreignKey: "authorid" });
-  //   post.hasMany(models.likes, { as: "likes", foreignKey: "postid" });
-  // };
+  });
+  post.associate = function (models) {
+    post.hasMany(models.like, { as: "like", foreignKey: "postid" });
+    post.belongsTo(models.user, { as: "author", foreignKey: "authorId" });
+  };
   return post;
 };

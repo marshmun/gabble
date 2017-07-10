@@ -12,6 +12,14 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      authorId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        refrences: {
+          model: "users",
+          key: "id",
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
