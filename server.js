@@ -33,6 +33,7 @@ function checkAuth(req, res, next) {
 render(app)
 allpost(app)
 auth(app)
+likes(app)
 
 app.listen(port, function () {
     console.log("Server is running on port", port);

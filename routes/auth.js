@@ -6,12 +6,7 @@ function auth(app) {
 
     app.post('/signup', function (req, res) {
         var username = req.body;
-        console.log('input: ', username);
-
         var newUser = models.user.build(username);
-        console.log(username.username)
-        console.log(models.user.find())
-
         newUser
             .save()
             .then(function (savedInput) {
@@ -21,7 +16,6 @@ function auth(app) {
                 res.status(500).send(err);
             })
     })
-
     app.post("/login", function (req, res) {
         if (!req.body || !req.body.username || !req.body.password) {
             return res.redirect('/')
@@ -37,8 +31,7 @@ function auth(app) {
                 }
             })
             if (!userRecord) {
-                console.log("usersRecord:", userRecord)
-                return res.redirect('/login');//user not found
+                return res.redirect('/login');
             }
             if (requestingUser.password === userRecord.password) {
                 req.session.requestingUser = userRecord;

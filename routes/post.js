@@ -4,12 +4,11 @@ const models = require('../models')
 function allpost(app) {
     app.post('/homepage', function (req, res) {
         var post = req.body;
-        console.log('input: ', post);
-
-        var newPost = models.post.build({
-            authorId: req.session.requestingUser.id,
-            body: req.body.body
-        });
+        var newPost = models.post.build
+            ({
+                authorId: req.session.requestingUser.id,
+                body: req.body.body
+            });
         newPost
             .save()
             .then(function (savedInput) {
@@ -18,6 +17,14 @@ function allpost(app) {
                 res.status(500).send(err);
             })
     })
+
+    app.post("/delete-post", (req, res) => {
+        models.post.destroy({ where: { id: req.body.id } }).then(() => {
+            return res.redirect('/homepage')
+        }).catch(err => {
+            res.send('error')
+        })
+    });
 
 
 }

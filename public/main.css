@@ -1,3 +1,16 @@
 body {
     background-color: lightblue;
+    text-align: center;
+    justify-content: center
+}
+
+.eachpost {
+    border: solid black 1px;
+    flex-wrap: wrap;
+    max-width: 43rem;
+    border-radius: 1rem;
+}
+
+.delete {
+    display: flex;
 }
