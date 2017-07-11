@@ -11,6 +11,11 @@
 </head>
 
 <body>
+ <div class="nav bar">
+        <a href="/homepage">Gabble</a>
+        <a href ="/profile">logged in as : {{#all}} {{author.username}}{{/all}}</a>
+        <a href="/logout"> Log out</a>
+    </div>
     <h1> Gabble</h1>
     <form action="/profile" method="post">
         <input type="text" name="bio" placeholder="Please tell us about your self">

@@ -41,7 +41,11 @@ function auth(app) {
             }
         });
     })
-    // app.get('/logout')
+
+    app.get("/logout", function (req, res) {
+        req.session.destroy();
+        res.redirect("/");
+    });
 }
 
 
