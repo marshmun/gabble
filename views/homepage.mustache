@@ -13,7 +13,7 @@
 <body>
     <div class="nav bar">
         <a href="/homepage">Gabble</a>
-        <div> logged in as : {{#post}}{{dataValues.author.dataValues.username}}{{/post}}</div>
+        <a href ="/profile">logged in as : {{#all}} {{author.username}}{{/all}}</a>
         <a href="/logout"> Log out</a>
     </div>
     <h1> Gabble</h1>
@@ -22,16 +22,16 @@
         <input type="submit">
     </form>
 
-    {{#post}}
+    {{#all}}
     <div class="eachpost">
         <div class="name">
-            {{dataValues.author.dataValues.firstName}} {{dataValues.author.dataValues.lastName}}</div>
+            {{author.firstName}} {{author.lastName}}</div>
         <br> {{body}}
         <br>
         <div class="delete">
             <form action="/like" method="POST">
                 <input type="hidden" name="postid" value={{id}}>
-                <input type="hidden" name="authorid" value={{user.id}}>
+                <input type="hidden" name="authorId" value={{user.id}}>
                 <input class="likeBtn" type="submit" value="Like"></form>Liked by: &nbsp {{likes.length}} &nbsp users &nbsp
             </form>
             <form action="/delete-post" method="post">
@@ -39,7 +39,7 @@
             </form>
         </div>
     </div>
-    <br> {{/post}}
+    <br> {{/all}}
 
 
 </body>

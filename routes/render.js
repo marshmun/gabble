@@ -28,19 +28,24 @@ function render(app) {
 
     app.get('/homepage', checkAuth, function (req, res) {
         models.post.findAll({
+            order: [['createdAt', 'DESC']],
             include: [
                 {
                     model: models.user,
                     as: "author"
+                },
+                {
+                    model: models.like,
+                    as: "like",
                 }
             ],
-            // where: { authorId: req.body.postid }
         })
             .then(function (foundPosts) {
+                res.render('homepage', {
+                    all: foundPosts,
+                    user: req.session.requestingUser
+                })
                 var postsAuthorId = foundPosts[0].dataValues.authorId;
-                var authorId = foundPosts[0].dataValues.author.dataValues.id;
-
-                res.render('homepage', { post: foundPosts })
             })
     })
 }

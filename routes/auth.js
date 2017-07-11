@@ -41,6 +41,7 @@ function auth(app) {
             }
         });
     })
+    // app.get('/logout')
 }
 
 
