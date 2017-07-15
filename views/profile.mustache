@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./main.css">
-
-    <title>Document</title>
+    <title>My Profile</title>
 </head>
 
 <body>
- <div class="nav-bar">
-        <img class=:logo"" src="gabbleLogo.png" alt="GabbleLogo">
+    <div class="nav-bar">
+        <img class="logo" src="gabbleLogo.png" alt="GabbleLogo">
         <a href="/homepage">Gabble</a>
-        <a href ="/profile">logged in as : {{#all}} {{author.firstName}}{{/all}}</a>
+        <a href="/profile">logged in as :  {{user.firstName}} </a>
+        <a href="/myGabs">My Gabs</a>
         <a href="/logout"> Log out</a>
     </div>
     <h1> Gabble</h1>
     <h2> Update your profile:</h2>
-     <form action="/update" method="post">
-     {{#all}} Username: {{author.username}}{{/all}}
+    <form action="/update" method="post">
+        {{#all}} Username: {{author.username}}{{/all}}
         <input type="password" name="password" placeholder="password">
         <input type="text" name="email" placeholder="email">
         <input type="text" name="firstName" placeholder="First Name">

@@ -12,6 +12,15 @@
         color: white;
     }
     
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: lightgrey;
+    }
+    
     .eachpost {
         border: solid black 1px;
         flex-wrap: wrap;
@@ -61,12 +70,16 @@
     
     .logo {
         height: 7rem;
+        margin-top: -37px;
+        margin-bottom: -37px;
     }
     
     .nav-bar {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        background-color: #428BCA;
+        color: white;
     }
     
     #textArea {
