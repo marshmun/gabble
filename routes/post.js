@@ -25,6 +25,9 @@ function allpost(app) {
             res.send('error')
         })
     });
+    app.post('/update'), (req, res) => {
+        models.user.update()
+    }
 
 
 }

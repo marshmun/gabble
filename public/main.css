@@ -1,16 +1,80 @@
-body {
-    background-color: lightblue;
-    text-align: center;
-    justify-content: center
-}
-
-.eachpost {
-    border: solid black 1px;
-    flex-wrap: wrap;
-    max-width: 43rem;
-    border-radius: 1rem;
-}
-
-.delete {
-    display: flex;
-}
+    html {
+        text-align: -webkit-center;
+    }
+    
+    body {
+        background-color: lightblue;
+        justify-content: center;
+        margin: auto
+    }
+    
+    submit {
+        color: white;
+    }
+    
+    .eachpost {
+        border: solid black 1px;
+        flex-wrap: wrap;
+        max-width: 43rem;
+        border-radius: 1rem;
+    }
+    
+    .delete {
+        display: flex;
+    }
+    
+    .signupHeader {
+        border-bottom: solid 1px black;
+        background-color: #428BCA;
+        color: white;
+        margin: 0;
+        height: 4rem;
+        margin-bottom: 1rem;
+        padding-top: 2rem;
+    }
+    
+    .signupForm {
+        background-color: white;
+        border: 1px black solid;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 1 10rem grey;
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        border-radius: 3px;
+        max-width: 57rem;
+    }
+    
+    .signupForm input {
+        margin: .75rem;
+        height: 1.5rem;
+    }
+    
+    .footer {
+        background-color: #C9DEF0;
+    }
+    
+    .signupSubmit {
+        background-color: #428BCA;
+    }
+    
+    .logo {
+        height: 7rem;
+    }
+    
+    .nav-bar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    #textArea {
+        margin-top: 1rem;
+        height: 5rem;
+        resize: none;
+    }
+    
+    @media (min-width:545px) {}
+    
+    @media (min-width: 769px) {}

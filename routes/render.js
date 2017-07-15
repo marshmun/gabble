@@ -45,7 +45,6 @@ function render(app) {
                     all: foundPosts,
                     user: req.session.requestingUser
                 })
-                var postsAuthorId = foundPosts[0].dataValues.authorId;
             })
     })
 }

@@ -11,14 +11,16 @@
 </head>
 
 <body>
-    <div class="nav bar">
+    <div class="nav-bar">
+        <img class="logo" src="gabbleLogo.png" alt="GabbleLogo">
         <a href="/homepage">Gabble</a>
-        <a href ="/profile">logged in as : {{#all}} {{author.username}}{{/all}}</a>
+        <a href ="/profile">logged in as :  {{user.firstName}} </a>
         <a href="/logout"> Log out</a>
     </div>
     <h1> Gabble</h1>
     <form action="/homepage" method="post">
         <input type="text" name="body" placeholder="Tell us whats on your mind">
+        <br>
         <input type="submit">
     </form>
 

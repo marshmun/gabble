@@ -11,14 +11,21 @@
 </head>
 
 <body>
- <div class="nav bar">
+ <div class="nav-bar">
+        <img class=:logo"" src="gabbleLogo.png" alt="GabbleLogo">
         <a href="/homepage">Gabble</a>
-        <a href ="/profile">logged in as : {{#all}} {{author.username}}{{/all}}</a>
+        <a href ="/profile">logged in as : {{#all}} {{author.firstName}}{{/all}}</a>
         <a href="/logout"> Log out</a>
     </div>
     <h1> Gabble</h1>
-    <form action="/profile" method="post">
-        <input type="text" name="bio" placeholder="Please tell us about your self">
+    <h2> Update your profile:</h2>
+     <form action="/update" method="post">
+     {{#all}} Username: {{author.username}}{{/all}}
+        <input type="password" name="password" placeholder="password">
+        <input type="text" name="email" placeholder="email">
+        <input type="text" name="firstName" placeholder="First Name">
+        <input type="text" name="lastName" placeholder="Last Name">
+        <input type="text" name="bio" placeholder="Please Enter a short bio about your self">
         <input type="submit">
     </form>
 

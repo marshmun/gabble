@@ -11,16 +11,20 @@
 </head>
 
 <body>
-  <h1>Sign up!</h1>
-    <form action="/signup" method="post">
+
+    <form action="/signup" method="post" class="signupForm">
+        <h2 class ="signupHeader"> Sign up for Gabble!</h2>
         <input type="text" name="username" placeholder="User Name">
         <input type="password" name="password" placeholder="password">
         <input type="text" name="email" placeholder="email">
         <input type="text" name="firstName" placeholder="First Name">
         <input type="text" name="lastName" placeholder="Last Name">
-        <input type="text" name="bio" placeholder="Please Enter a short bio about your self">
-        <input type="submit">
+        <input type="textarea" rows="4" cols="50" name="bio" id="textArea" placeholder="Please Enter a short bio about your self">
+        <div class="footer"><input type="submit" class="signupSubmit" value="Sign up for Gabble!"></div>
     </form>
+        <div class="logo"><img src="gabbleLogo.png" alt="GabbleLogo"></div>
+
+
 
 
 </body>
